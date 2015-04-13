@@ -49,7 +49,7 @@ module Postmark
       DEFAULTS.merge(options).each_pair do |name, value|
         instance_variable_set(:"@#{name}", value)
       end
-      @port = options[:port] || @secure ? 443 : 80
+      @port = options[:port] || (@secure ? 443 : 80)
     end
 
     def to_query_string(hash)
